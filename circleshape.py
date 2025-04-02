@@ -19,3 +19,8 @@ class CircleShape(pygame.sprite.Sprite):
     def update(self, dt):
         # sub-classes must override
         raise NotImplementedError("Sub-classes must implement update method")
+    
+    def is_colliding(self, other: 'CircleShape'):
+        # Check if two circles are colliding
+        distance = self.position.distance_to(other.position)
+        return distance < (self.radius + other.radius)
